@@ -1,0 +1,12 @@
+base:
+    '*':
+        - elife
+        - elife.php7
+        - elife.nginx
+        - elife.nginx-php7
+        - elife.puli
+        - personalised-covers.aws
+        - personalised-covers
+        - api-dummy
+        - elife.proofreader-php
+        - personalised-covers.api-dummy
