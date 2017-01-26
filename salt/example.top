@@ -5,6 +5,7 @@ base:
         - elife.nginx
         - elife.nginx-php7
         - elife.puli
+        - elife.redis-server
         - personalised-covers.aws
         - personalised-covers
         - api-dummy
