@@ -8,3 +8,14 @@ aws-credentials:
         - template: jinja
         - require:
             - deploy-user
+
+aws-credentials-webserver:
+    file.managed:
+        - name: {{ salt['user.info'](pillar.elife.webserver.username).home }}/.aws/credentials
+        - source: salt://personalised-covers/config/home-webserver-.aws-credentials
+        - user: {{ pillar.elife.webserver.username }}
+        - group: {{ pillar.elife.webserver.username }}
+        - makedirs: True
+        - template: jinja
+        - require:
+            - deploy-user
