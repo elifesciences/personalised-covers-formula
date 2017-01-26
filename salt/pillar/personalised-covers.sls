@@ -1,4 +1,4 @@
-personalised-covers:
+personalised_covers:
     aws:
         access_key_id: null
         secret_access_key: null
