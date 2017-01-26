@@ -1,1 +1,0 @@
-# personalised-covers-formula
