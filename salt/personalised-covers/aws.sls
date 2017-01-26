@@ -18,4 +18,4 @@ aws-credentials-webserver:
         - makedirs: True
         - template: jinja
         - require:
-            - deploy-user
+            - webserver-user-group
