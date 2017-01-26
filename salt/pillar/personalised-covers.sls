@@ -6,3 +6,7 @@ personalised-covers:
 
 api_dummy:
     standalone: False
+
+redis:
+    port: 6379
+    host: localhost
