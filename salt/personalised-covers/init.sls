@@ -49,9 +49,9 @@ personalised-covers-cache:
 
 personalised-covers-composer-install:
     cmd.run:
-        {% if pillar.elife.env in ['prod', 'demo'] %}
+        {% if pillar.elife.env in ['prod', 'end2end'] %}
         - name: composer1.0 --no-interaction install --classmap-authoritative --no-dev
-        {% elif pillar.elife.env in ['ci', 'end2end'] %}
+        {% elif pillar.elife.env in ['ci'] %}
         - name: composer1.0 --no-interaction install --classmap-authoritative
         {% else %}
         - name: composer1.0 --no-interaction install
