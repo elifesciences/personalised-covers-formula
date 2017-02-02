@@ -46,6 +46,25 @@ personalised-covers-cache:
         - require:
             - file: personalised-covers-cache
 
+personalised-covers-logs:
+    file.directory:
+        - name: /srv/personalised-covers/var/logs
+        - user: {{ pillar.elife.webserver.username }}
+        - group: {{ pillar.elife.webserver.username }}
+        - dir_mode: 775
+        - file_mode: 664
+        - recurse:
+            - user
+            - group
+            - mode
+        - require:
+            - personalised-covers-cache
+
+    cmd.run:
+        - name: chmod -R g+s /srv/personalised-covers/var/logs
+        - require:
+            - file: personalised-covers-cache
+
 
 personalised-covers-composer-install:
     cmd.run:
@@ -60,6 +79,7 @@ personalised-covers-composer-install:
         - user: {{ pillar.elife.deploy_user.username }}
         - require:
             - personalised-covers-cache
+            - personalised-covers-logs
 
 
 personalised-covers-console-ready:
