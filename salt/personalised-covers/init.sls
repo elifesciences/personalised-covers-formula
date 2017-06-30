@@ -10,7 +10,7 @@ personalised-covers-repository:
         - force_reset: True
         - fetch_pull_requests: True
         - require:
-            - php-composer-1.0
+            - install-composer
 
     file.directory:
         - name: /srv/personalised-covers
