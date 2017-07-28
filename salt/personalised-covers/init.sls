@@ -68,11 +68,11 @@ personalised-covers-logs:
 personalised-covers-composer-install:
     cmd.run:
         {% if pillar.elife.env in ['prod', 'end2end'] %}
-        - name: composer1.0 --no-interaction install --classmap-authoritative --no-dev
+        - name: composer --no-interaction install --classmap-authoritative --no-dev
         {% elif pillar.elife.env in ['ci'] %}
-        - name: composer1.0 --no-interaction install --classmap-authoritative
+        - name: composer --no-interaction install --classmap-authoritative
         {% else %}
-        - name: composer1.0 --no-interaction install
+        - name: composer --no-interaction install
         {% endif %}
         - cwd: /srv/personalised-covers/
         - user: {{ pillar.elife.deploy_user.username }}
