@@ -64,6 +64,14 @@ personalised-covers-logs:
         - require:
             - file: personalised-covers-cache
 
+personalised-covers-data:
+    file.recurse:
+      - name: /srv/personalised-covers-data/formats
+      - source: salt://personalised-covers/data/formats
+      - user: {{ pillar.elife.webserver.username }}
+      - group: {{ pillar.elife.webserver.username }}
+      - dir_mode: 775
+      - file_mode: 664
 
 personalised-covers-composer-install:
     cmd.run:
@@ -79,7 +87,7 @@ personalised-covers-composer-install:
         - require:
             - personalised-covers-cache
             - personalised-covers-logs
-
+            - personalised-covers-data
 
 personalised-covers-console-ready:
     cmd.run:
