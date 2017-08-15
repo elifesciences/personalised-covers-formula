@@ -73,6 +73,16 @@ personalised-covers-data:
       - dir_mode: 555
       - file_mode: 444
 
+personalised-covers-config:
+    file.managed:
+        - name: /srv/personalised-covers/config/config.php
+        - user: {{ pillar.elife.deploy_user.username }}
+        - group: {{ pillar.elife.deploy_user.username }}
+        - source: salt://personalised-covers/config/srv-personalised-covers-config-config.php
+        - template: jinja
+        - require:
+            - personalised-covers-repository
+
 personalised-covers-composer-install:
     cmd.run:
         {% if pillar.elife.env in ['prod', 'end2end'] %}
@@ -85,6 +95,7 @@ personalised-covers-composer-install:
         - cwd: /srv/personalised-covers/
         - user: {{ pillar.elife.deploy_user.username }}
         - require:
+            - personalised-covers-config
             - personalised-covers-cache
             - personalised-covers-logs
             - personalised-covers-data
