@@ -70,8 +70,8 @@ personalised-covers-data:
       - source: salt://personalised-covers/data/formats
       - user: {{ pillar.elife.webserver.username }}
       - group: {{ pillar.elife.webserver.username }}
-      - dir_mode: 775
-      - file_mode: 664
+      - dir_mode: 555
+      - file_mode: 444
 
 personalised-covers-composer-install:
     cmd.run:
