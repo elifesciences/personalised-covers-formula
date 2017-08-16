@@ -1,8 +1,11 @@
 personalised_covers:
+    api: 'http://localhost:8080/'
+    landing_page: 'http://elifesciences.org/cover/%s'
     aws:
         access_key_id: null
         secret_access_key: null
         region: us-east-1
+        bucket: 'dev-elife-personalised-covers'
 
 api_dummy:
     standalone: False
