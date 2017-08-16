@@ -3,6 +3,11 @@
 return [
 	{% if pillar.elife.env in ['ci', 'dev']  %}
 	'debug' => true,
+	'aws_credentials' => [
+		'key' => 'test',
+		'secret' => 'test'
+	],
+	'aws_endpoint' => 'http://127.0.0.1:4000/',
 	{% else %}
 	'debug' => false,
 	{% endif %}
