@@ -6,10 +6,10 @@ base:
         - elife.nginx
         - elife.nginx-php7
         - elife.redis-server
+        - elife.nodejs6
         - personalised-covers.aws
         - personalised-covers
         - api-dummy
         - elife.proofreader-php
         - personalised-covers.api-dummy
         - elife.fakes3
-        - elife.nodejs6
