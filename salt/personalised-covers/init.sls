@@ -110,7 +110,7 @@ personalised-covers-npm-install:
 
 personalised-covers-gulp:
     cmd.run:
-        - name: retry node_modules/.bin/gulp 3
+        - name: node_modules/.bin/gulp
         - cwd: /srv/personalised-covers
         - user: {{ pillar.elife.deploy_user.username }}
         - require:
