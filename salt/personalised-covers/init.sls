@@ -100,23 +100,6 @@ personalised-covers-composer-install:
             - personalised-covers-logs
             - personalised-covers-data
 
-personalised-covers-npm-install:
-    cmd.run:
-        - name: npm install
-        - cwd: /srv/personalised-covers
-        - user: {{ pillar.elife.deploy_user.username }}
-        - require:
-            - personalised-covers-repository
-
-personalised-covers-gulp:
-    cmd.run:
-        - name: node_modules/.bin/gulp
-        - cwd: /srv/personalised-covers
-        - user: {{ pillar.elife.deploy_user.username }}
-        - require:
-            - personalised-covers-npm-install
-            - personalised-covers-composer-install
-
 personalised-covers-console-ready:
     cmd.run:
         - name: ./bin/console --env={{ pillar.elife.env }}
