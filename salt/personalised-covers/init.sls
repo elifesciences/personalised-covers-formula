@@ -100,6 +100,14 @@ personalised-covers-composer-install:
             - personalised-covers-logs
             - personalised-covers-data
 
+personalised-covers-gen-fonts:
+    cmd.run:
+        - name: ./bin/font-generator
+        - user: {{ pillar.elife.deploy_user.username }}
+        - cwd: /srv/personalised-covers
+        - require:
+            - personalised-covers-composer-install
+
 personalised-covers-console-ready:
     cmd.run:
         - name: ./bin/console --env={{ pillar.elife.env }}
