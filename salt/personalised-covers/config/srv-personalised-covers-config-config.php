@@ -15,6 +15,7 @@ return [
 	'aws_bucket' => "{{pillar.personalised_covers.aws.bucket}}",
 	'elife_api' => "{{ pillar.personalised_covers.api }}",
 	'landing_page_url' => "{{pillar.personalised_covers.landing_page}}",
+	'font_path' => '/srv/personalised-covers/data/fonts/output',
 	'cover_images' => [
 		'load_paths' => [
 			'a4' => '/srv/personalised-covers-data/formats/a4',
