@@ -22,5 +22,6 @@ return [
 			'letter' => '/srv/personalised-covers-data/formats/letter'
 		],
 	],
+	'gtm_id' => "{{ pillar.personalised_covers.gtm_id }}",
 ];
 
