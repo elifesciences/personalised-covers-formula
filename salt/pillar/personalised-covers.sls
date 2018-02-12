@@ -1,4 +1,5 @@
 personalised_covers:
+    gtm_id: GTM-XXXX
     api: 'http://localhost:8080/'
     landing_page: 'http://elifesciences.org/cover/%s'
     aws:
