@@ -11,4 +11,3 @@ base:
         - api-dummy
         - elife.proofreader-php
         - personalised-covers.api-dummy
-        - elife.fakes3
