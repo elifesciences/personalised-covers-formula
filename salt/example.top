@@ -1,6 +1,7 @@
 base:
     '*':
         - elife
+        - elife.swapspace
         - elife.php7
         - elife.composer
         - elife.nginx
