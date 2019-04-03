@@ -1,1 +1,1 @@
-elifeFormula('personalised-covers', '', null, ['s1804'])
+elifeFormula('personalised-covers', '/srv/personalised-covers')

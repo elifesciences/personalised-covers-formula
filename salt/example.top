@@ -9,6 +9,11 @@ base:
         - elife.redis-server
         - personalised-covers.aws
         - personalised-covers
+        # for testing
         - api-dummy
         - elife.proofreader-php
         - personalised-covers.api-dummy
+        - elife.docker
+        - elife.aws-cli
+        - elife.sidecars
+        - personalised-covers.localstack
