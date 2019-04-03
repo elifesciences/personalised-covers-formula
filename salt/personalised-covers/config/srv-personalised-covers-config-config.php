@@ -1,13 +1,8 @@
 <?php
 
 return [
-	{% if pillar.elife.env in ['ci', 'dev']  %}
+	{% if pillar.elife.env not in ['prod', 'end2end', 'continuumtest']  %}
 	'debug' => true,
-	'aws_credentials' => [
-		'key' => 'test',
-		'secret' => 'test'
-	],
-	'aws_endpoint' => 'http://127.0.0.1:4000/',
 	{% else %}
 	'debug' => false,
 	{% endif %}
