@@ -93,7 +93,7 @@ personalised-covers-composer-install:
         - name: composer --no-interaction install
         {% endif %}
         - cwd: /srv/personalised-covers/
-        - user: {{ pillar.elife.deploy_user.username }}
+        - runas: {{ pillar.elife.deploy_user.username }}
         - require:
             - personalised-covers-config
             - personalised-covers-cache
@@ -103,7 +103,7 @@ personalised-covers-composer-install:
 personalised-covers-gen-fonts:
     cmd.run:
         - name: ./bin/font-generator
-        - user: {{ pillar.elife.deploy_user.username }}
+        - runas: {{ pillar.elife.deploy_user.username }}
         - cwd: /srv/personalised-covers
         - require:
             - personalised-covers-composer-install
@@ -112,14 +112,14 @@ personalised-covers-console-ready:
     cmd.run:
         - name: ./bin/console --env={{ pillar.elife.env }}
         - cwd: /srv/personalised-covers
-        - user: {{ pillar.elife.deploy_user.username }}
+        - runas: {{ pillar.elife.deploy_user.username }}
         - require:
             - personalised-covers-composer-install
 
 personalised-covers-cache-clean:
     cmd.run:
         - name: ./bin/console cache:clear --env={{ pillar.elife.env }}
-        - user: {{ pillar.elife.deploy_user.username }}
+        - runas: {{ pillar.elife.deploy_user.username }}
         - cwd: /srv/personalised-covers
         - require:
             - personalised-covers-console-ready
