@@ -19,6 +19,7 @@ personalised-covers-repository:
         - recurse:
             - user
             - group
+        - follow_symlinks: False # repository has a broken symlink that only resolves itself after 'composer install'
         - require:
             - builder: personalised-covers-repository
 
