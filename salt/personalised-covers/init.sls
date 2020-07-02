@@ -12,14 +12,11 @@ personalised-covers-repository:
         - require:
             - install-composer
 
-    file.directory:
-        - name: /srv/personalised-covers
-        - user: {{ pillar.elife.deploy_user.username }}
-        - group: {{ pillar.elife.deploy_user.username }}
-        - recurse:
-            - user
-            - group
-        - follow_symlinks: False # repository has a broken symlink that only resolves itself after 'composer install'
+    # lsh@2020-07: repository has a broken symlink that only resolves itself after 'composer install'
+    # broken symlink precludes usage of 'file.directory'
+    cmd.run:
+        - cwd: /srv/personalised-covers
+        - name: chown -R {{ pillar.elife.deploy_user.username }}:{{ pillar.elife.deploy_user.username }} ./
         - require:
             - builder: personalised-covers-repository
 
