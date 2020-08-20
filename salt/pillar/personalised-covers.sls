@@ -1,6 +1,7 @@
 personalised_covers:
     gtm_id: GTM-XXXX
     api: 'http://localhost:8080/'
+    journal_url: 'https://continuumtest--journal.elifesciences.org/'
     landing_page: 'http://elifesciences.org/cover/%s'
     aws:
         access_key_id: null
