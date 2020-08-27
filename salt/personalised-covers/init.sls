@@ -1,3 +1,9 @@
+personalised-covers-packages:
+    pkg.installed:
+        - pkgs:
+            - imagemagick
+            - ghostscript # installed as part of imagemagick but can't hurt
+
 personalised-covers-repository:
     builder.git_latest:
         - name: git@github.com:elifesciences/personalised-covers.git
