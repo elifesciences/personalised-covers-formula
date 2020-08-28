@@ -75,7 +75,8 @@
   <policy domain="coder" rights="none" pattern="PS2" />
   <policy domain="coder" rights="none" pattern="PS3" />
   <policy domain="coder" rights="none" pattern="EPS" />
-  <policy domain="coder" rights="none" pattern="PDF" />
+  <!-- commented out the lien below to allow reading or writing of PDF -->
+  <!-- <policy domain="coder" rights="none" pattern="PDF" /> -->
   <policy domain="coder" rights="none" pattern="XPS" />
 </policymap>
 
