@@ -4,6 +4,16 @@ personalised-covers-packages:
             - imagemagick
             - ghostscript # installed as part of imagemagick but can't hurt
 
+imagemagick-policyfile:
+    file.managed:
+        - name: /etc/ImageMagick-6/policy.xml
+        - source: salt://personalised-covers/config/etc-ImageMagick-6-policy.xml
+        - mode: 644 # rw,r,r
+        - require:
+            - personalised-covers-packages
+
+#
+
 personalised-covers-repository:
     builder.git_latest:
         - name: git@github.com:elifesciences/personalised-covers.git
