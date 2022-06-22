@@ -1,3 +1,4 @@
+{% set osrelease = salt['grains.get']('osrelease') %}
 base:
     '*':
         - elife
@@ -7,13 +8,20 @@ base:
         - elife.nginx
         - elife.nginx-php7
         - elife.redis-server
+        {% if osrelease == "18.04" %}
+        - elife.nodejs6
+        {% else %}
+        - elife.nodejs16
+        {% endif %}
         - personalised-covers.aws
         - personalised-covers
+        #- elife.newrelic-php
         # for testing
         - api-dummy
         - elife.proofreader-php
         - personalised-covers.api-dummy
-        - elife.docker
+        #- elife.docker
+        - elife.docker-native
         - elife.aws-cli
         - elife.sidecars
         - personalised-covers.localstack
