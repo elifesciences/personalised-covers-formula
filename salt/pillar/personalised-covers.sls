@@ -17,6 +17,8 @@ redis:
     host: localhost
 
 elife:
+    composer:
+        version: 2.4.0
     sidecars:
         containers:
             localstack:
