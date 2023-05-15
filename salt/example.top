@@ -1,3 +1,4 @@
+
 base:
     '*':
         - elife
@@ -7,13 +8,15 @@ base:
         - elife.nginx
         - elife.nginx-php7
         - elife.redis-server
+        - elife.nodejs16
         - personalised-covers.aws
         - personalised-covers
+        #- elife.newrelic-php
         # for testing
         - api-dummy
         - elife.proofreader-php
         - personalised-covers.api-dummy
-        - elife.docker
+        - elife.docker-native
         - elife.aws-cli
         - elife.sidecars
         - personalised-covers.localstack
