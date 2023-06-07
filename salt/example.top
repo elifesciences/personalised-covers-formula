@@ -14,7 +14,6 @@ base:
         #- elife.newrelic-php
         # for testing
         - api-dummy
-        - elife.proofreader-php
         - personalised-covers.api-dummy
         - elife.docker-native
         - elife.aws-cli
