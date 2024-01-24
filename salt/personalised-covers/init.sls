@@ -139,7 +139,21 @@ personalised-covers-cache-clean:
             - personalised-covers-console-ready
             - personalised-covers-cache
 
-personalised-covers-nginx-vhost:
+{% if pillar.elife.webserver.app == "caddy" %}
+personalised-covers-vhost:
+    file.managed:
+        - name: /etc/caddy/sites.d/personalised-covers
+        - source: salt://personalised-covers/config/etc-caddy-sites.d-personalised-covers
+        - template: jinja
+        - require_in:
+            - caddy-validate-config
+        - require:
+            - personalised-covers-composer-install
+        - listen_in:
+            - service: caddy-server-service
+            - service: php-fpm
+{% else %}
+personalised-covers-vhost:
     file.managed:
         - name: /etc/nginx/sites-enabled/personalised-covers.conf
         - source: salt://personalised-covers/config/etc-nginx-sites-enabled-personalised-covers.conf
@@ -150,6 +164,7 @@ personalised-covers-nginx-vhost:
         - listen_in:
             - service: nginx-server-service
             - service: php-fpm
+{% endif %}
 
 syslog-ng-personalised-covers-logs:
     file.managed:
