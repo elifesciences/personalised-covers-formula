@@ -15,18 +15,20 @@
         error 403
     }
 
-    try_files {path} /app_{{ pillar.elife.env }}.php?{query}
+    handle {
+        try_files {path} /app_{{ pillar.elife.env }}.php?{query}
 
-    @app-env {
-        path_regexp ^/app_{{ pillar.elife.env }}\.php(/|$)
-    }
-    handle @app-env {
-        php_fastcgi unix//var/php-fpm.sock {
-            env ENVIRONMENT_NAME {{ pillar.elife.env }}
-            capture_stderr true
+        @app-env {
+            path_regexp ^/app_{{ pillar.elife.env }}\.php(/|$)
+        }
+        handle @app-env {
+            php_fastcgi unix//var/php-fpm.sock {
+                env ENVIRONMENT_NAME {{ pillar.elife.env }}
+                capture_stderr true
 
-            # how long to wait when connecting to the upstream socket
-            dial_timeout 3s # default
+                # how long to wait when connecting to the upstream socket
+                dial_timeout 3s # default
+            }
         }
     }
 }
