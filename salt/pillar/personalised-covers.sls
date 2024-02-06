@@ -17,6 +17,8 @@ redis:
     host: localhost
 
 elife:
+    webserver:
+        app: caddy
     composer:
         version: 2.4.0
     sidecars:
