@@ -15,7 +15,7 @@ base:
         - personalised-covers
         # for testing
         - api-dummy
-        - personalised-covers.api-dummy
+        - api-dummy.caddy
         - elife.docker-native
         - elife.aws-cli
         - elife.sidecars
